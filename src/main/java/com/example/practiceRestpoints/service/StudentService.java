@@ -12,7 +12,7 @@ import com.example.practiceRestpoints.dto.Student;
 public class StudentService {
 	
 	public List<Student> stdlist=Arrays.asList(new Student("Anvesh", "503K", 26),
-			new Student("Bcd", "504K", 27),
+			new Student("BCD", "504K", 27),
 			new Student("DCB", "505K", 28));
 	
 	
