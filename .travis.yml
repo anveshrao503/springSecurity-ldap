@@ -15,12 +15,9 @@ env:
   global:
   - secure: "encrypted-dockerhub-username"
   - secure: "encrypted-dockerhub-password"
-  - COMMIT=${TRAVIS_COMMIT::7}
   
 after_success:
     - docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH; fi`
-    - export IMAGE_NAME=anveshrao3/springSecurity
-    - docker build -t $IMAGE_NAME:$COMMIT .
-    - docker tag $IMAGE_NAME:$COMMIT $IMAGE_NAME:$TAG
-    - docker push $IMAGE_NAME      
+    - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
+    - docker build -t anveshrao3/springSecurity .
+    - docker push anveshrao3/springSecurity      
