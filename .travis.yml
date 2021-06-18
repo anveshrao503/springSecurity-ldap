@@ -20,4 +20,4 @@ after_success:
     - docker login -u $DOCKER_USER -p $DOCKER_PASS
     - echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
     - docker build -t anveshrao3/springsecurity .
-    - docker push anveshrao3/springSecurity      
+    - docker push anveshrao3/springsecurity      
